@@ -6,6 +6,8 @@ import { FoodList, selectList } from './menu/FoodsList.js'
 import { NavBar } from "./NavBar.js";
 import * as UserManager from './auth/UserManager.js'; 
 import { CheckForUser } from "./auth/CheckForUser.js";
+import { LoginForm } from "./auth/LoginForm.js";
+import { RegisterForm } from "./auth/RegisterForm.js";
 import { Footer } from "./Footer.js";
 
 ////////////// app declarations ///////////////////////
@@ -30,22 +32,22 @@ const headerElement = document.querySelector("header");
 ///////////// end event listeners /////////////////////
 
 
-// const checkForUser = () => {
-//     if (sessionStorage.getItem("SOUser")){
-//       UserManager.setLoggedInUser(JSON.parse(sessionStorage.getItem("SOUser")));
-//     }
-//     //   startSO();
-//     // }else {
-//     //   //show login/register
-//     //   console.log("no user showLogin")
-//     // }
+const checkForUser = () => {
+    if (sessionStorage.getItem("SOUser"))
+    {
+      UserManager.setLoggedInUser(JSON.parse(sessionStorage.getItem("SOUser")));
+       startSO();
+     } else {
+       showLoginRegister()
+       console.log("no user showLogin")
+     }
 
-//     NavBar();
-//     contentElement.innerHTML = FoodList();
-//   }
+    NavBar();
+    contentElement.innerHTML = FoodList();
+  }
 
-    const showLoginRegister = () => {
-        showNavBar();
+    export const showLoginRegister = () => {
+        NavBar();
         const entryElement = document.querySelector(".entryForm");
         //template strings can be used here too
         entryElement.innerHTML = `${LoginForm()} <hr/> <hr/> ${RegisterForm()}`;
