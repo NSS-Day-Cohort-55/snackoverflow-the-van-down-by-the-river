@@ -11,6 +11,7 @@ export const NavBar = () => {
         if (event.target.id === "login") {
             showLoginRegister()
         }else if (event.target.id === "menu"){
+            
             FoodList();
         }
     })
@@ -70,6 +71,7 @@ export const NavBar = () => {
                     </ul>
                 </div>
             </div>
+            
         </nav>
     `
 }
